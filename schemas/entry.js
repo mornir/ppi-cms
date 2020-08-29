@@ -7,6 +7,7 @@ export default {
       name: 'prescription',
       title: 'BS-Vorschrift',
       type: 'reference',
+      description: 'Quelle des Begriffs',
       to: [{ type: 'prescription' }],
     },
     {
