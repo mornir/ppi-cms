@@ -1,6 +1,8 @@
+import Tabs from 'sanity-plugin-tabs'
+
 export default {
   name: 'entry',
-  title: 'Eintrag',
+  title: 'Termino-Einträge',
   type: 'document',
   fields: [
     {
@@ -11,25 +13,39 @@ export default {
       to: [{ type: 'prescription' }],
     },
     {
-      name: 'de',
-      title: 'Allemand',
-      type: 'langue',
-    },
-    {
-      name: 'fr',
-      title: 'Français',
-      type: 'langue',
+      name: 'content',
+      type: 'object',
+      inputComponent: Tabs,
+      fieldsets: [
+        { name: 'de', title: 'Deutsch' },
+        { name: 'fr', title: 'Français' },
+        { name: 'it', title: 'Italiano' },
+      ],
+      fields: [
+        {
+          type: 'lang',
+          name: 'de',
+          title: 'Deutsch',
+          fieldset: 'de',
+        },
+        {
+          type: 'lang',
+          name: 'fr',
+          title: 'Français',
+          fieldset: 'fr',
+        },
+        {
+          type: 'lang',
+          name: 'aside',
+          title: 'Italiano',
+          fieldset: 'it',
+        },
+      ],
     },
   ],
   preview: {
     select: {
-      code: 'code',
-      title: 'de.title',
-    },
-    prepare({ code, title }) {
-      return {
-        title: `${code}-15 ${title}`,
-      }
+      title: 'content.de.vedette',
     },
   },
 }

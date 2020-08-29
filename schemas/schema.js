@@ -9,6 +9,9 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import prescription from './prescription'
 import langue from './langue'
 import entry from './entry'
+import blockContent from './blockContent'
+import lang from './lang'
+import synonym from './synonym'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -19,9 +22,11 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
-
+    blockContent,
     prescription,
     langue,
+    lang,
     entry,
+    synonym,
   ]),
 })
